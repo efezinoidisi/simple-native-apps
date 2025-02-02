@@ -1,50 +1,44 @@
-# Welcome to your Expo app 👋
+## A Simple React-Native App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple react native app that displays this [project repository](https://github.com/efezinoidisi/simple-native-app) and a link to [Hire React-Native Developers](http://hng.tech/hire/react-native-developers).
 
-## Get started
+## Local Setup Instructions
 
-1. Install dependencies
+Follow these steps to set up and run this project on your local machine:
 
-   ```bash
-   npm install
-   ```
+- **Ensure you have the latest version of [Node JS](https://nodejs.org/) installed **
 
-2. Start the app
+-
 
-   ```bash
-    npx expo start
-   ```
+1. Clone the repository
 
-In the output, you'll find options to open the app in a
+```
+git clone https://github.com/efezinoidisi/simple-native-app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+cd simple-native-app
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+cd main-app
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install project dependencies
 
-## Learn more
+```
+npm install
 
-To learn more about developing your project with Expo, look at the following resources:
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+3. Run the App
 
-## Join the community
+```
+npx expo start
 
-Join our community of developers creating universal apps.
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+You can run the app on a physical device(iOS or Andriod phone) or your browser:
+
+- **iOS**: If you're using an iPhone you can download the Expo Go app from the Apple store
+
+- **Andriod**: You can download the Expo Go app from playstore.
+
+Open the app and scan the QR code(check terminal) \*Ensure you're connected to the same network(phone and laptop/desktop)
