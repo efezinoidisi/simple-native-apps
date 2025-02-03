@@ -1,4 +1,4 @@
-## A Simple React-Native App
+# A Simple React-Native App
 
 A simple react native app that displays this [project repository](https://github.com/efezinoidisi/simple-native-app) and a link to [Hire React-Native Developers](http://hng.tech/hire/react-native-developers).
 
@@ -42,3 +42,14 @@ You can run the app on a physical device(iOS or Andriod phone) or your browser:
 - **Andriod**: You can download the Expo Go app from playstore.
 
 Open the app and scan the QR code(check terminal) \*Ensure you're connected to the same network(phone and laptop/desktop)
+
+### Other Links
+
+  - [Hire Mobile Developers](https://hng.tech/hire/mobile-developers)
+  - [Hire Flutter Developers](https://hng.tech/hire/flutter-developers)
+  - [Hire Kotlin Developers](https://hng.tech/hire/kotlin-developers)
+  - [Hire Android Developers](https://hng.tech/hire/android-developers)
+  - [Hire iOS Developers](https://hng.tech/hire/ios-developers) 
+
+## License
+This project is licensed under the MIT License.
