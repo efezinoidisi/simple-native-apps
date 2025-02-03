@@ -6,9 +6,7 @@ A simple react native app that displays this [project repository](https://github
 
 Follow these steps to set up and run this project on your local machine:
 
-- **Ensure you have the latest version of [Node JS](https://nodejs.org/) installed **
-
--
+**Ensure you have the latest version of [Node JS](https://nodejs.org/) installed**
 
 1. Clone the repository
 
