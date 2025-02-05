@@ -1,6 +1,6 @@
-## A Simple React-Native App
+## Simple React-Native Apps
 
-A simple react native app that displays this [project repository](https://github.com/efezinoidisi/simple-native-app) and a link to [Hire React-Native Developers](http://hng.tech/hire/react-native-developers).
+This repository contains different react-native apps that I build in my Journey to master react-native
 
 ## Local Setup Instructions
 
@@ -13,11 +13,13 @@ Follow these steps to set up and run this project on your local machine:
 1. Clone the repository
 
 ```
-git clone https://github.com/efezinoidisi/simple-native-app
+git clone https://github.com/efezinoidisi/simple-native-apps
 
-cd simple-native-app
+cd simple-native-apps
 
-cd main-app
+# change directory to the task folder you want i.e
+
+cd task-zero
 
 ```
 
