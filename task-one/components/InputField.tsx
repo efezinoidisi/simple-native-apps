@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 8,
     height: 40,
+    paddingInline: 5,
   },
   label: {
     fontSize: 16,
