@@ -85,7 +85,7 @@ const CountryDetails = () => {
           />
         </Pressable>
         <ThemedText
-          style={{ fontFamily: 'Axiforma-Bold' }}
+          style={{ fontFamily: 'Axiforma Bold' }}
           className='text-gray-900 font-bold text-xl dark:text-gray-200 text-center w-full leading-[32.9px] tracking-normal'
         >
           {country.name.common}

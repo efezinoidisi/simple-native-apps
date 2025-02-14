@@ -1,4 +1,7 @@
+// import Countries from '@/components/Countries';
+import Countries from '@/components/Countries';
 import ErrorMessage from '@/components/Error';
+import FilterModal from '@/components/FilterModal';
 import LanguageFilterModal from '@/components/LanguageFilterModal';
 import Loading from '@/components/Loading';
 import SearchBar from '@/components/SearchBar';
@@ -6,12 +9,12 @@ import ThemedText from '@/components/ThemedText';
 import ThemeToggle from '@/components/ThemeToggle';
 import useCountriesQuery from '@/hooks/useCountriesQuery';
 import useFilter from '@/hooks/useFilter';
-import { getAllLanguages } from '@/utils';
+import { DropdownState } from '@/types';
+import { getAllLanguages, getTimezones } from '@/utils';
 import Feather from '@expo/vector-icons/Feather';
-import { Link } from 'expo-router';
 import { useColorScheme } from 'nativewind';
 import { useRef, useState } from 'react';
-import { Image, Pressable, SectionList, Text, View } from 'react-native';
+import { Image, Pressable, View } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
 
 export default function Index() {
@@ -21,7 +24,7 @@ export default function Index() {
 
   const {
     filterModalsVisibility,
-    handleFilterStateChange,
+    setFilters,
     filters,
     setFilterModalVisibility,
   } = useFilter();
@@ -44,11 +47,12 @@ export default function Index() {
     countryA.name.common.localeCompare(countryB.name.common)
   );
 
+  // search all available countries not just the filtered ones
+
   const searchResults = countries?.filter((country) => {
     const languages = country.languages
       ? Object.values(country.languages)
       : [''];
-    // languages.includes(filters.language)
 
     if (
       country.name.common
@@ -62,11 +66,24 @@ export default function Index() {
     const languages = country.languages
       ? Object.values(country.languages)
       : [''];
-    if (languages.includes(filters.language)) return country;
+    const languageMatch = languages.includes(filters.language);
+
+    const continentMatch =
+      filters.continent.length > 0
+        ? filters.continent.includes(country.continents[0])
+        : true;
+
+    const timezoneMatch =
+      filters.timezone.length > 0
+        ? filters.timezone.includes(country.timezones[0])
+        : true;
+
+    return languageMatch && continentMatch && timezoneMatch;
   });
 
   const filteredCountries = searchValue ? searchResults : filteredResults;
 
+  // group countries using the alphabetical order
   const countriesByAlphabet = filteredCountries?.reduce<
     Record<string, { name: string; flag: string; capital: string }[]>
   >((all, word) => {
@@ -90,6 +107,12 @@ export default function Index() {
   );
 
   const allLanguages = getAllLanguages(countries);
+
+  const allTimezones = getTimezones(countries);
+
+  const handleApplyFilter = (state: DropdownState) => {
+    setFilters((prev) => ({ ...prev, ...state }));
+  };
 
   return (
     <PaperProvider>
@@ -129,6 +152,8 @@ export default function Index() {
         {/* FILTERS */}
 
         <View className='mb-4 flex-row items-center justify-between'>
+          {/* Language modal open button */}
+
           <Pressable
             onPress={() =>
               setFilterModalVisibility((prev) => ({
@@ -152,7 +177,14 @@ export default function Index() {
             </ThemedText>
           </Pressable>
 
+          {/* Timezones and Continents modal open button */}
           <Pressable
+            onPress={() =>
+              setFilterModalVisibility((prev) => ({
+                ...prev,
+                continentTimezone: true,
+              }))
+            }
             style={{
               boxShadow: '0px 1px 2px rgba(16, 24, 40, 0.05)',
               borderRadius: 4,
@@ -168,62 +200,43 @@ export default function Index() {
               Filter
             </ThemedText>
           </Pressable>
-
-          <LanguageFilterModal
-            isVisible={filterModalsVisibility.language}
-            languages={allLanguages}
-            onApplyFilter={() => {}}
-            onClose={() =>
-              setFilterModalVisibility((prev) => ({
-                ...prev,
-                language: false,
-              }))
-            }
-            value={filters.language}
-            onChange={handleFilterStateChange}
-            isDark={isDarkMode}
-          />
         </View>
 
-        <View className='flex-1'>
-          <SectionList
-            className='grid gap-y-48'
-            style={{ gap: 40 }}
-            sections={sectionList}
-            renderItem={({ item }) => (
-              <Link
-                href={{
-                  pathname: '/country/[name]',
-                  params: { name: item.name },
-                }}
-              >
-                <View className='flex flex-row gap-4 items-center'>
-                  <ThemedText className='text-[40px]'>{item.flag}</ThemedText>
-                  <View className=''>
-                    <ThemedText className='text-gray-900 dark:text-gray-100 mb-[2px]'>
-                      {item.name}
-                    </ThemedText>
-                    <ThemedText className='text-gray-500 dark:text-gray-400'>
-                      {item.capital}
-                    </ThemedText>
-                  </View>
-                </View>
-              </Link>
-            )}
-            keyExtractor={(item) => item.name}
-            renderSectionHeader={({ section }) => (
-              <Text className='text-gray-500 uppercase mt-5 mb-4'>
-                {section.title}
-              </Text>
-            )}
-            ItemSeparatorComponent={() => <View className='h-2' />}
-            ListEmptyComponent={() => (
-              <View>
-                <ThemedText>No such country found...</ThemedText>
-              </View>
-            )}
-          />
-        </View>
+        {/* MODALS */}
+        <LanguageFilterModal
+          isVisible={filterModalsVisibility.language}
+          languages={allLanguages}
+          onClose={() =>
+            setFilterModalVisibility((prev) => ({
+              ...prev,
+              language: false,
+            }))
+          }
+          value={filters.language}
+          onChange={(text) =>
+            setFilters((prev) => ({ ...prev, language: text }))
+          }
+          isDark={isDarkMode}
+        />
+
+        <FilterModal
+          timezoneValues={filters.timezone}
+          continentValues={filters.continent}
+          timezones={allTimezones}
+          onApplyFilter={handleApplyFilter}
+          isVisible={filterModalsVisibility.continentTimezone}
+          isDark={isDarkMode}
+          onClose={() =>
+            setFilterModalVisibility((prev) => ({
+              ...prev,
+              continentTimezone: false,
+            }))
+          }
+        />
+
+        {/* LIST OF COUNTRIES */}
+
+        <Countries sections={sectionList} />
       </View>
     </PaperProvider>
   );

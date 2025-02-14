@@ -18,9 +18,9 @@ This project is built using [Expo](https://docs.expo.dev/), [React Native](https
 
 - [NativeWind](https://www.nativewind.dev/) : Utility-first styling for React Native apps using [TailwindCSS](https://tailwindcss.com/) classes.
 
--[Tanstack Query](https://tanstack.com/query/latest/docs/framework/react/overview) : For data fetching and caching.
+- [Tanstack Query](https://tanstack.com/query/latest/docs/framework/react/overview) : For data fetching and caching.
 
--[React native animated carousel](https://rn-carousel.dev/)
+- [React native animated carousel](https://rn-carousel.dev/)
 
 ## Local Setup Instructions
 

@@ -74,14 +74,34 @@ export type SearchbarProps = TextInputProps & {
   value: string;
 };
 
+export type FilterState = {
+  language: string;
+  continent: Array<string>;
+  timezone: Array<string>;
+};
+
 export type LanguageFilterModalProps = {
   isVisible: boolean;
   onClose: () => void;
-  onApplyFilter: (filter: string) => void;
   languages: Array<string | undefined> | null;
   value: string;
-  onChange: (value: string, id: string) => void;
+  onChange: (text: string) => void;
   isDark: boolean;
+};
+
+export type DropdownState = {
+  continent: Array<string>;
+  timezone: Array<string>;
+};
+
+export type FilterModalProps = {
+  isVisible: boolean;
+  onClose: () => void;
+  onApplyFilter: (state: DropdownState) => void;
+  isDark: boolean;
+  timezoneValues: Array<string>;
+  continentValues: Array<string>;
+  timezones: Array<string>;
 };
 
 export type CarouselItem = {
@@ -100,3 +120,5 @@ export type DetailsCardProps = {
   value: string | number;
   className?: string;
 };
+
+export type DropdownId = 'continent' | 'timezone';

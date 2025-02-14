@@ -2,12 +2,11 @@ import { LanguageFilterModalProps } from '@/types';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React from 'react';
 import { FlatList, Modal, Pressable, View } from 'react-native';
-import { RadioButton } from 'react-native-paper';
+import { Portal, RadioButton } from 'react-native-paper';
 import ThemedText from './ThemedText';
 
 const LanguageFilterModal = ({
   isVisible,
-  onApplyFilter,
   onClose,
   languages,
   value,
@@ -15,8 +14,12 @@ const LanguageFilterModal = ({
   isDark,
 }: LanguageFilterModalProps) => {
   return (
-    <Modal visible={isVisible} transparent={true} animationType='slide'>
-      <View className='bg-black/40 absolute inset-0 size-full dark:bg-white/40'>
+    <Portal>
+      <Modal visible={isVisible} transparent={true} animationType='slide'>
+        <Pressable
+          onPress={onClose}
+          className='bg-black/40  inset-0 absolute  size-full dark:bg-white/40'
+        />
         <View className='bg-white h-[82%] absolute bottom-0 w-full rounded-t-[32px] px-6 dark:bg-dark'>
           <View className='flex-row items-center justify-between my-6'>
             <ThemedText className='text-gray-900 dark:text-gray-200 font-bold text-xl leading-8 tracking-normal'>
@@ -30,7 +33,7 @@ const LanguageFilterModal = ({
 
           <View className='flex-1'>
             <RadioButton.Group
-              onValueChange={(text) => onChange(text, 'language')}
+              onValueChange={(text) => onChange(text)}
               value={value}
             >
               <FlatList
@@ -54,8 +57,8 @@ const LanguageFilterModal = ({
             </RadioButton.Group>
           </View>
         </View>
-      </View>
-    </Modal>
+      </Modal>
+    </Portal>
   );
 };
 

@@ -29,3 +29,9 @@ export function getAllLanguages(countries: Array<Country>) {
 
   return Array.from(languageSet).sort();
 }
+
+export function getTimezones(countries: Country[]) {
+  return countries
+    .flatMap((country) => country.timezones)
+    .filter((timezone, index, self) => self.indexOf(timezone) === index);
+}
