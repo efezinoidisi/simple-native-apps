@@ -1,39 +1,69 @@
-# Welcome to your Expo app 👋
+# Countries App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+The Countries app allows users to view information about all countries available in the [Countries API](https://restcountries.com/v3.1/all).
 
-## Get started
+## Key Features
 
-1. Install dependencies
+- View a list of countries.
 
-   ```bash
-   npm install
-   ```
+- View additional information(name, flag, popopulation, capital city,e.t.c) of a country when selected from the list.
 
-2. Start the app
+- Easily switch between dark and light mode
 
-   ```bash
-    npx expo start
-   ```
+## Project Setup
 
-In the output, you'll find options to open the app in a
+This project is built using [Expo](https://docs.expo.dev/), [React Native](https://reactnative.dev/docs/). Expo simplifies the process of running and building React Native applications, and it comes with a set of pre-configured tools for iOS, Android, and web.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Other Dependencies
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- [NativeWind](https://www.nativewind.dev/) : Utility-first styling for React Native apps using [TailwindCSS](https://tailwindcss.com/) classes.
 
-## Get a fresh project
+-[Tanstack Query](https://tanstack.com/query/latest/docs/framework/react/overview) : For data fetching and caching.
 
-When you're ready, run:
+-[React native animated carousel](https://rn-carousel.dev/)
 
-```bash
-npm run reset-project
+## Local Setup Instructions
+
+Follow these steps to set up and run this project on your local machine:
+
+**Ensure you have the latest version of [Node JS](https://nodejs.org/) installed**
+
+1. Clone the repository
+
+```
+git clone https://github.com/efezinoidisi/simple-native-apps
+
+cd simple-native-apps
+
+# change directory to the project folder
+
+cd countries-app
+
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install project dependencies
+
+```
+npm install
+
+```
+
+3. Run the App
+
+```
+npx expo start
+
+```
+
+You can run the app on a physical device(Andriod phone) or your browser:
+
+- **Andriod**: You can download the Expo Go app from playstore.
+
+Open the app and scan the QR code(check terminal) \*Ensure you're connected to the same network(phone and laptop/desktop)
+
+## Contributing
+
+Any help is always welcome! Just fork the repository, edit the relevant file, and make a Pull request.
 
 ## Learn more
 
@@ -41,10 +71,3 @@ To learn more about developing your project with Expo, look at the following res
 
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
