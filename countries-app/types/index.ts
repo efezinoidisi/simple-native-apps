@@ -14,6 +14,8 @@ export type Country = {
       symbol: string;
     };
   };
+  cca2: string;
+  cca3: string;
   capital: Array<string>;
   altSpellings: Array<string>;
   region: string;
@@ -48,6 +50,13 @@ export type Country = {
   capitalInfo: {
     latlng: Array<number>;
   };
+  idd: {
+    root: string;
+    suffixes: Array<string>;
+  };
+  gini: {
+    [key: number]: number;
+  };
 };
 
 export type ThemeToggleProps = {
@@ -73,4 +82,21 @@ export type LanguageFilterModalProps = {
   value: string;
   onChange: (value: string, id: string) => void;
   isDark: boolean;
+};
+
+export type CarouselItem = {
+  id: string;
+  image: string;
+  alt?: string;
+};
+
+export type ImageCarouselProps = {
+  data: Array<CarouselItem>;
+  isDarkMode: boolean;
+};
+
+export type DetailsCardProps = {
+  title: string;
+  value: string | number;
+  className?: string;
 };

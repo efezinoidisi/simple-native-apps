@@ -25,6 +25,9 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [fontsLoaded, fontsError] = useFonts({
     Axiforma: require('../assets/fonts/Axiforma-Regular.ttf'),
+    'Axiforma-Light': require('../assets/fonts/Axiforma-Light.ttf'),
+    'Axiforma-Medium': require('../assets/fonts/Axiforma-Medium.ttf'),
+    Axiforma_bold: require('../assets/fonts/Axiforma-Bold.ttf'),
   });
 
   useEffect(() => {
@@ -43,7 +46,9 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack screenOptions={{ headerShown: false }}>
+      <Stack
+        screenOptions={{ headerShown: false, animation: 'slide_from_right' }}
+      >
         <Stack.Screen name='index' />
       </Stack>
     </QueryClientProvider>

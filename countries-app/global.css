@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #fff;
+    color: #000;
+    max-width: 31.25rem;
+    margin-inline: auto;
+  }
+
+  .dark body {
+    background-color: #000f24;
+    color: #fff;
+  }
+}

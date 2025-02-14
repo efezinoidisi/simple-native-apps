@@ -28,29 +28,31 @@ const LanguageFilterModal = ({
             </Pressable>
           </View>
 
-          <RadioButton.Group
-            onValueChange={(text) => onChange(text, 'language')}
-            value={value}
-          >
-            <FlatList
-              data={languages}
-              ItemSeparatorComponent={() => <View className='h-2' />}
-              keyExtractor={(item, index) => `${item}${index}`}
-              renderItem={({ item }) => {
-                if (!item) return null;
+          <View className='flex-1'>
+            <RadioButton.Group
+              onValueChange={(text) => onChange(text, 'language')}
+              value={value}
+            >
+              <FlatList
+                data={languages}
+                ItemSeparatorComponent={() => <View className='h-2' />}
+                keyExtractor={(item, index) => `${item}${index}`}
+                renderItem={({ item }) => {
+                  if (!item) return null;
 
-                return (
-                  <View className='flex-row justify-between items-center'>
-                    <ThemedText>{item}</ThemedText>
-                    <RadioButton
-                      value={item}
-                      color={isDark ? '#F2F4F7' : '#001637'}
-                    />
-                  </View>
-                );
-              }}
-            />
-          </RadioButton.Group>
+                  return (
+                    <View className='flex-row justify-between items-center'>
+                      <ThemedText>{item}</ThemedText>
+                      <RadioButton
+                        value={item}
+                        color={isDark ? '#F2F4F7' : '#001637'}
+                      />
+                    </View>
+                  );
+                }}
+              />
+            </RadioButton.Group>
+          </View>
         </View>
       </View>
     </Modal>
