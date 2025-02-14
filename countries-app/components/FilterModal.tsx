@@ -51,6 +51,7 @@ const FilterModal = ({
 
   const resetSelectedItems = () => {
     setSelectedItems(defaultValues);
+    onApplyFilter(defaultValues);
   };
 
   const handleApply = () => {
