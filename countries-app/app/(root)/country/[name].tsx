@@ -5,10 +5,10 @@ import Loading from '@/components/Loading';
 import ThemedText from '@/components/ThemedText';
 import useCountriesQuery from '@/lib/hooks/useCountriesQuery';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
 import React from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 
 const CountryDetails = () => {
   const { data: countries, error, status } = useCountriesQuery();
@@ -70,9 +70,14 @@ const CountryDetails = () => {
 
   return (
     <View className='bg-white min-h-screen dark:bg-dark px-6 py-4 '>
-      {/* Header */}
+      <Stack.Screen
+        options={{
+          animation: 'slide_from_bottom',
+        }}
+      />
+
       <View className='flex-row items-center justify-start'>
-        <Pressable
+        <TouchableOpacity
           accessible={true}
           accessibilityLabel='go back'
           onPress={() => router.back()}
@@ -83,7 +88,7 @@ const CountryDetails = () => {
             size={24}
             color={isDarkMode ? '#F2F4F7' : 'black'}
           />
-        </Pressable>
+        </TouchableOpacity>
         <ThemedText
           style={{ fontFamily: 'Axiforma Bold' }}
           className='text-gray-900 font-bold text-xl dark:text-gray-200 text-center w-full leading-[32.9px] tracking-normal'
@@ -91,6 +96,7 @@ const CountryDetails = () => {
           {country.name.common}
         </ThemedText>
       </View>
+
       <ScrollView>
         {/* Image Carousel */}
 
