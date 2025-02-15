@@ -101,7 +101,7 @@ const CountryDetails = () => {
         <View className='gap-y-2'>
           <DetailsCard title='Population' value={population} />
           <DetailsCard title='Region' value={country.region} />
-          <DetailsCard title='Capital' value={country.capital.toString()} />
+          <DetailsCard title='Capital' value={country.capital[0]} />
           <DetailsCard title='Official language' value={language} />
         </View>
 

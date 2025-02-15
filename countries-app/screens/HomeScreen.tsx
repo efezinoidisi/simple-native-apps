@@ -99,10 +99,11 @@ const HomeScreen = ({
             pathname: '/country/[name]',
             params: { name: item.name },
           }}
-          className='flex-1'
         >
-          <View className='flex flex-row gap-4 items-center'>
-            <Text className='text-[40px]'>{item.flag}</Text>
+          <View style={{ gap: 16, alignItems: 'center', flexDirection: 'row' }}>
+            <Text className='' style={{ fontSize: 40 }}>
+              {item.flag}
+            </Text>
             <View className=''>
               <ThemedText className='text-gray-900 dark:text-gray-100 mb-[2px]'>
                 {item.name}
