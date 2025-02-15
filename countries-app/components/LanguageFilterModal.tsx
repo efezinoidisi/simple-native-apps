@@ -24,6 +24,7 @@ const LanguageFilterModal = ({
     onClose();
   };
 
+
   return (
     <Portal>
       <Modal visible={isVisible} transparent={true} animationType='slide'>

@@ -7,7 +7,7 @@ import { Country, DropdownState } from '@/lib/types';
 import { getAllLanguages, getTimezones } from '@/lib/utils';
 import { Link } from 'expo-router';
 import React, { useCallback, useMemo } from 'react';
-import { Dimensions, SectionList, View } from 'react-native';
+import { Dimensions, SectionList, Text, View } from 'react-native';
 
 const { height } = Dimensions.get('screen');
 
@@ -102,7 +102,7 @@ const HomeScreen = ({
           className='flex-1'
         >
           <View className='flex flex-row gap-4 items-center'>
-            <ThemedText className='text-[40px]'>{item.flag}</ThemedText>
+            <Text className='text-[40px]'>{item.flag}</Text>
             <View className=''>
               <ThemedText className='text-gray-900 dark:text-gray-100 mb-[2px]'>
                 {item.name}
