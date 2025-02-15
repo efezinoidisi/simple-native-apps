@@ -1,7 +1,13 @@
 import { LanguageFilterModalProps } from '@/types';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React from 'react';
-import { FlatList, Modal, Pressable, View } from 'react-native';
+import {
+  FlatList,
+  Modal,
+  Pressable,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Portal, RadioButton } from 'react-native-paper';
 import ThemedText from './ThemedText';
 
@@ -13,6 +19,11 @@ const LanguageFilterModal = ({
   onChange,
   isDark,
 }: LanguageFilterModalProps) => {
+  const handleRadioButtonPress = (text: string) => {
+    onChange(text);
+    onClose();
+  };
+
   return (
     <Portal>
       <Modal visible={isVisible} transparent={true} animationType='slide'>
@@ -33,7 +44,7 @@ const LanguageFilterModal = ({
 
           <View className='flex-1'>
             <RadioButton.Group
-              onValueChange={(text) => onChange(text)}
+              onValueChange={handleRadioButtonPress}
               value={value}
             >
               <FlatList
@@ -44,13 +55,17 @@ const LanguageFilterModal = ({
                   if (!item) return null;
 
                   return (
-                    <View className='flex-row justify-between items-center'>
+                    <TouchableOpacity
+                      className='flex-row justify-between items-center'
+                      onPress={() => handleRadioButtonPress(item)}
+                    >
                       <ThemedText>{item}</ThemedText>
                       <RadioButton
                         value={item}
                         color={isDark ? '#F2F4F7' : '#001637'}
+                        status={value === item ? 'checked' : 'unchecked'}
                       />
-                    </View>
+                    </TouchableOpacity>
                   );
                 }}
               />

@@ -1,4 +1,8 @@
-import { TextInputProps, TextProps } from 'react-native';
+import {
+  TextInputProps,
+  TextProps,
+  TouchableWithoutFeedbackProps,
+} from 'react-native';
 
 export type Country = {
   name: {
@@ -122,3 +126,7 @@ export type DetailsCardProps = {
 };
 
 export type DropdownId = 'continent' | 'timezone';
+
+export type ButtonProps = TouchableWithoutFeedbackProps & {
+  title: string;
+};

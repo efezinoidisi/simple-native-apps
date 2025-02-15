@@ -1,7 +1,13 @@
 import { DropdownId } from '@/types';
 import Feather from '@expo/vector-icons/Feather';
 import React, { useState } from 'react';
-import { Dimensions, FlatList, Pressable, View } from 'react-native';
+import {
+  Dimensions,
+  FlatList,
+  Pressable,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Checkbox } from 'react-native-paper';
 import ThemedText from './ThemedText';
 
@@ -66,7 +72,10 @@ const Dropdown = ({
             data={data}
             ItemSeparatorComponent={() => <View className='h-2' />}
             renderItem={({ item }) => (
-              <View className='flex-row items-center justify-between'>
+              <TouchableOpacity
+                className='flex-row items-center justify-between'
+                onPress={() => handleChange(item, id)}
+              >
                 <ThemedText className='text-base text-gray-500 dark:text-gray-300'>
                   {item}
                 </ThemedText>
@@ -74,10 +83,9 @@ const Dropdown = ({
                   status={
                     selectedItems.includes(item) ? 'checked' : 'unchecked'
                   }
-                  onPress={() => handleChange(item, id)}
                   color={isDarkMode ? '#F2F4F7' : '#1C1917'}
                 />
-              </View>
+              </TouchableOpacity>
             )}
             keyExtractor={(item) => item}
           />
