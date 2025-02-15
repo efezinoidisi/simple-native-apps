@@ -1,5 +1,5 @@
-import { ThemedTextProps } from '@/types';
-import { cn } from '@/utils';
+import { ThemedTextProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { Text } from 'react-native';
 

@@ -1,5 +1,5 @@
-import { DetailsCardProps } from '@/types';
-import { cn } from '@/utils';
+import { DetailsCardProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { View } from 'react-native';
 import ThemedText from './ThemedText';

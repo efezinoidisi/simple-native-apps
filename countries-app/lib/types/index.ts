@@ -130,3 +130,25 @@ export type DropdownId = 'continent' | 'timezone';
 export type ButtonProps = TouchableWithoutFeedbackProps & {
   title: string;
 };
+
+export type AppDataState = {
+  filters: {
+    continent: Array<string>;
+    timezone: Array<string>;
+  };
+  language: string;
+  search: string;
+
+  updateFilters: (data: DropdownState) => void;
+
+  updateLanguage: (value: string) => void;
+
+  updateSearch: (value: string) => void;
+};
+
+export type AppModalState = {
+  languageModal: boolean;
+  filterModal: boolean;
+  toggleLanguageModal: () => void;
+  toggleFilterModal: () => void;
+};

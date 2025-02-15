@@ -1,5 +1,5 @@
-import { API_BASE_URL } from '@/constants';
-import { Country } from '@/types';
+import { API_BASE_URL } from '@/lib/constants';
+import { Country } from '@/lib/types';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 

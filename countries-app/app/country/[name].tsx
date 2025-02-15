@@ -3,7 +3,7 @@ import ErrorMessage from '@/components/Error';
 import ImageCarousel from '@/components/ImageCarousel';
 import Loading from '@/components/Loading';
 import ThemedText from '@/components/ThemedText';
-import useCountriesQuery from '@/hooks/useCountriesQuery';
+import useCountriesQuery from '@/lib/hooks/useCountriesQuery';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
@@ -11,7 +11,7 @@ import React from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
 const CountryDetails = () => {
-  const { data: countries, isPending, error } = useCountriesQuery();
+  const { data: countries, error, status } = useCountriesQuery();
   const { name } = useLocalSearchParams();
 
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -23,7 +23,7 @@ const CountryDetails = () => {
     throw new Error('Not found!');
   }
 
-  if (isPending) {
+  if (status === 'pending') {
     return <Loading isDarkMode={isDarkMode} />;
   }
 

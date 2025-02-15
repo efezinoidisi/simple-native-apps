@@ -1,4 +1,4 @@
-import { ThemeToggleProps } from '@/types';
+import { ThemeToggleProps } from '@/lib/types';
 import Feather from '@expo/vector-icons/Feather';
 import React from 'react';
 import { Pressable } from 'react-native';

@@ -1,7 +1,7 @@
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 
-import { SearchbarProps } from '@/types';
-import { cn } from '@/utils';
+import { SearchbarProps } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { TextInput, TouchableOpacity, View } from 'react-native';
 
@@ -26,7 +26,7 @@ const SearchBar = ({
         style={{ fontFamily: 'Axiforma' }}
         value={value}
         onChangeText={onChangeText}
-        className='bg-transparent placeholder:text-gray-500 placeholder:justify-center size-full resize-none placeholder:text-base placeholder:font-light text-left dark:text-gray-200 outline-none pr-3'
+        className='bg-transparent placeholder:text-gray-500 placeholder:justify-center size-full resize-none placeholder:text-base placeholder:font-light dark:text-gray-200 outline-none pr-3 text-center'
         {...otherProps}
       />
       {isNotEmpty ? (

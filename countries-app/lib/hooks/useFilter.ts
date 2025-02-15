@@ -1,4 +1,4 @@
-import { FilterState } from '@/types';
+import { FilterState } from '@/lib/types';
 import { useState } from 'react';
 
 export default function useFilter() {

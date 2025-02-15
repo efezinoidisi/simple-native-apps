@@ -20,6 +20,8 @@ This project is built using [Expo](https://docs.expo.dev/), [React Native](https
 
 - [Tanstack Query](https://tanstack.com/query/latest/docs/framework/react/overview) : For data fetching and caching.
 
+- [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction) : A small and fast state management solution.
+
 - [React native animated carousel](https://rn-carousel.dev/)
 
 ## Local Setup Instructions

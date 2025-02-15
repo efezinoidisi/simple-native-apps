@@ -1,5 +1,5 @@
-import { CONTINENTS } from '@/constants';
-import { DropdownId, DropdownState, FilterModalProps } from '@/types';
+import { CONTINENTS } from '@/lib/constants';
+import { DropdownId, DropdownState, FilterModalProps } from '@/lib/types';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useState } from 'react';
 import { Modal, Pressable, TouchableOpacity, View } from 'react-native';

@@ -1,4 +1,4 @@
-import { DropdownId } from '@/types';
+import { DropdownId } from '@/lib/types';
 import Feather from '@expo/vector-icons/Feather';
 import React, { useState } from 'react';
 import {

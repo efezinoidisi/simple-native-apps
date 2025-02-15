@@ -1,4 +1,4 @@
-import { LanguageFilterModalProps } from '@/types';
+import { LanguageFilterModalProps } from '@/lib/types';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React from 'react';
 import {

@@ -1,4 +1,4 @@
-import { ImageCarouselProps } from '@/types';
+import { ImageCarouselProps } from '@/lib/types';
 import Feather from '@expo/vector-icons/Feather';
 import React, { useRef } from 'react';
 import { Dimensions, Image, Pressable, View } from 'react-native';
